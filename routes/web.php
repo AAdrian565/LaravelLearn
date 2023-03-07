@@ -14,5 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+  return view('home');
 });
+
+Route::get('/about', function () {
+  return view('about');
+});
+
+/* Route::get('/', ['../app/Http/Controllers/WebController.php'::class, 'index']); */
