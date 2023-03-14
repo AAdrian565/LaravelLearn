@@ -21,4 +21,23 @@ Route::get('/about', function () {
   return view('about');
 });
 
+Route::group(['prefix' => '/admin'], function () {
+  Route::get('/test', function () {
+    return view('test');
+  });
+  Route::get('/testing', function () {
+    return view('test2');
+  });
+});
+
+
+/* Route::get('/admin/test', function () { */
+/*   return view('test'); */
+/* }); */
+/* Route::group(['prefix' => '/test', function () { */
+/* }]); */
+Route::get('/input/{param}', function ($param) {
+  return "<h1>$param<h1>";
+});
+
 /* Route::get('/', ['../app/Http/Controllers/WebController.php'::class, 'index']); */
