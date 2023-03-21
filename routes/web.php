@@ -25,8 +25,11 @@ Route::group(['prefix' => '/admin'], function () {
   Route::get('/test', function () {
     return view('test');
   });
-  Route::get('/testing', function () {
-    return view('test2');
+  Route::get('/charts', function () {
+    return view('adminCharts');
+  });
+  Route::get('/login', function () {
+    return view('adminLogin');
   });
 });
 
