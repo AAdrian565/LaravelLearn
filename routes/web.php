@@ -22,14 +22,17 @@ Route::get('/about', function () {
 });
 
 Route::group(['prefix' => '/admin'], function () {
-  Route::get('/test', function () {
-    return view('test');
+  Route::get('/login', function () {
+    return redirect('/admin');
+  });
+  Route::get('/', function () {
+    return view('/adminLogin');
   });
   Route::get('/charts', function () {
     return view('adminCharts');
   });
-  Route::get('/login', function () {
-    return view('adminLogin');
+  Route::get('/dashboard', function () {
+    return view('adminDashboard');
   });
 });
 
