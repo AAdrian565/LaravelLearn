@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +27,8 @@ Route::group(['prefix' => '/admin'], function () {
     return redirect('/admin');
   });
   Route::get('/', function () {
-    return view('/adminLogin');
+    return view('adminLogin');
+    /* return view('/adminLogin'); */
   });
   Route::get('/charts', function () {
     return view('adminCharts');
@@ -48,10 +50,6 @@ Route::get('/input/{param}', function ($param) {
 
 /* Route::get('/', ['../app/Http/Controllers/WebController.php'::class, 'index']); */
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
