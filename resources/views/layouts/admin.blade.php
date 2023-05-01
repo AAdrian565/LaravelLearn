@@ -18,6 +18,7 @@
     <!-- Custom styles for this template-->
     <link href="/css/admin.css" rel="stylesheet">
 
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 
 <body id="page-top">
@@ -57,6 +58,15 @@
                     <span>Message</span></a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
+                {{ __('Logout') }}
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            </li>
 
             <hr class="sidebar-divider d-none d-md-block">
 
