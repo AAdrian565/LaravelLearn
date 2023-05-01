@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -14,8 +14,13 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+
+Route::get('/test', function () {
+  return view('test');
+});
+
 Route::get('/', function () {
-  return view('home');
+  return view('index');
 });
 
 Route::get('/about', function () {
@@ -28,10 +33,9 @@ Route::group(['prefix' => '/admin'], function () {
   });
   Route::get('/', function () {
     return view('adminLogin');
-    /* return view('/adminLogin'); */
   });
-  Route::get('/charts', function () {
-    return view('adminCharts');
+  Route::get('/message', function () {
+    return view('adminMessage');
   });
   Route::get('/dashboard', function () {
     return view('adminDashboard');
@@ -48,8 +52,10 @@ Route::get('/input/{param}', function ($param) {
   return "<h1>$param<h1>";
 });
 
+
 /* Route::get('/', ['../app/Http/Controllers/WebController.php'::class, 'index']); */
 
+Auth::routes();
 Auth::routes(['register' => false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
